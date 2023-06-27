@@ -1,0 +1,5 @@
+This is a copy of libaaf, reorganized to match ardour's source tree layout
+pulled in via `tools/update_libaaf.sh`
+
+https://github.com/agfline/LibAAF
+rev. v0.1-10-ga24e67d
