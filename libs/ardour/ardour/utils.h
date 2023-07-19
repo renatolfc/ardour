@@ -112,8 +112,8 @@ LIBARDOUR_API uint32_t how_many_dsp_threads ();
 
 LIBARDOUR_API std::string compute_sha1_of_file (std::string path);
 
-template<typename T> std::shared_ptr<ControlList> route_list_to_control_list (std::shared_ptr<RouteList const> rl, std::shared_ptr<T> (Stripable::*get_control)() const) {
-	std::shared_ptr<ControlList> cl (new ControlList);
+template<typename T> std::shared_ptr<AutomationControlList> route_list_to_control_list (std::shared_ptr<RouteList const> rl, std::shared_ptr<T> (Stripable::*get_control)() const) {
+	std::shared_ptr<AutomationControlList> cl (new AutomationControlList);
 	if (!rl) { return cl; }
 	for (auto const& r : *rl) {
 		std::shared_ptr<AutomationControl> ac = (r.get()->*get_control)();
@@ -124,8 +124,8 @@ template<typename T> std::shared_ptr<ControlList> route_list_to_control_list (st
 	return cl;
 }
 
-template<typename T> std::shared_ptr<ControlList> stripable_list_to_control_list (StripableList& sl, std::shared_ptr<T> (Stripable::*get_control)() const) {
-	std::shared_ptr<ControlList> cl (new ControlList);
+template<typename T> std::shared_ptr<AutomationControlList> stripable_list_to_control_list (StripableList& sl, std::shared_ptr<T> (Stripable::*get_control)() const) {
+	std::shared_ptr<AutomationControlList> cl (new AutomationControlList);
 	for (StripableList::const_iterator s = sl.begin(); s != sl.end(); ++s) {
 		std::shared_ptr<AutomationControl> ac = ((*s).get()->*get_control)();
 		if (ac) {

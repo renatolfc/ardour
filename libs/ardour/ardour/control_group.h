@@ -48,7 +48,7 @@ class LIBARDOUR_API ControlGroup : public std::enable_shared_from_this<ControlGr
 	int add_control (std::shared_ptr<AutomationControl>);
 	int remove_control (std::shared_ptr<AutomationControl>);
 
-	ControlList controls () const;
+	AutomationControlList controls () const;
 
 	void clear ();
 

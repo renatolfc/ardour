@@ -80,10 +80,10 @@ ControlGroup::clear ()
 	}
 }
 
-ControlList
+AutomationControlList
 ControlGroup::controls () const
 {
-	ControlList c;
+	AutomationControlList c;
 
 	if (_active) {
 		Glib::Threads::RWLock::WriterLock lm (controls_lock);
